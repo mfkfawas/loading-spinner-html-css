@@ -14,8 +14,6 @@
   font-size: 2rem;
   overflow: hidden;
   position: relative;
-  /* overlay different colors together to get a new color when two things overlap each other */
-  mix-blend-mode: overlay;
   /* alternate is used to do play the animation forwards first, then backwards
    animation-direction: alternate; The animation-direction property defines whether an animation should be played forwards, backwards
     or in alternate cycles.*/
@@ -29,6 +27,8 @@
   border-radius: 50%;
   border: 15px solid transparent;
   animation: rotate var(--duration) var(--timing) infinite;
+  /* overlay different colors together to get a new color when two things overlap each other */
+  mix-blend-mode: overlay;
   pointer-events: none;
 }
 
@@ -69,4 +69,43 @@
   100% {
     color: rgba(0, 0, 0, 0.1);
   }
+}
+
+.spinner-2 {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 2rem;
+  overflow: hidden;
+  position: relative;
+  animation: text-color 2s ease-in-out infinite alternate;
+}
+
+.spinner-2::before,
+.spinner-2::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 15px solid transparent;
+  animation: rotate var(--duration) var(--timing) infinite;
+  /* overlay different colors together to get a new color when two things overlap each other */
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.spinner-2::before {
+  border-left-color: lightblue;
+  --duration: 2s;
+  --timing: ease-in;
+}
+
+.spinner-2::after {
+  border-right-color: lightgreen;
+  --duration: 2.5s;
+  --timing: ease-out;
 }
